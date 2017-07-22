@@ -2,11 +2,11 @@
 # automatically, but can be overridden here.
 
 # first: HSO
-# second: GRD
-# third: CLF
+# second: GRS
+# third: CGS
 # rookie: TBG
-committee: MAI
+committee: MAI2
 image: HRS
 movement: TBG
-web: PSC
+web: MFG
 
