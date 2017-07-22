@@ -83,41 +83,68 @@ static_knockout:
         # S<num> means seed number
         teams:
         - S3
-        - S5
         - S8
-        - S10
       1:
         arena: A
         start_time: 2014-04-27 15:35:00+01:00
         teams:
         - S4
-        - S6
         - S7
+      2:
+        arena: A
+        start_time: 2014-04-27 15:40:00+01:00
+        teams:
+        - S5
+        - S10
+      3:
+        arena: A
+        start_time: 2014-04-27 15:45:00+01:00
+        teams:
+        - S6
         - S9
     1:
       0:
         arena: A
-        start_time: 2014-04-27 15:45:00+01:00
+        start_time: 2014-04-27 15:50:00+01:00
         # 012 means the 3rd place in match 1 in round 0 of the knockouts
         teams:
         - S2
-        - '000'
         - '002'
-        - '011'
       1:
         arena: A
-        start_time: 2014-04-27 15:50:00+01:00
+        start_time: 2014-04-27 15:55:00+01:00
         teams:
         - S1
-        - '001'
         - '010'
+      2:
+        arena: A
+        start_time: 2014-04-27 16:00:00+01:00
+        teams:
+        - '000'
+        - '011'
+      3:
+        arena: A
+        start_time: 2014-04-27 16:05:00+01:00
+        teams:
+        - '001'
         - '012'
     2:
       0:
         arena: A
-        start_time: 2014-04-27 16:00:00+01:00
+        start_time: 2014-04-27 16:10:00+01:00
         teams:
         - '100'
-        - '101'
         - '110'
+      1:
+        arena: A
+        start_time: 2014-04-27 16:15:00+01:00
+        teams:
+        - '101'
         - '111'
+    3:
+      0:
+        arena: A
+        start_time: 2014-04-27 16:20:00+01:00
+        teams:
+        - '200'
+        - '210'
