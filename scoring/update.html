@@ -1,0 +1,152 @@
+{% extends "_update.html" %}
+
+<!--
+Note: this template is a really bad example of a scoring sheet and exists
+only to ensure that the dummy competition state is usable.
+If you're creating a score sheet for a new competition, you should instead
+refer to https://github.com/PeterJCLaw/srcomp/wiki/Competition-Preparation#create-a-score-sheet
+for guidance or look at a recent compstate for examples.
+-->
+
+{% block form_content %}
+<table class="update_form">
+    <tr>
+        <th>Corner</th>
+        <td>0</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+
+    <tr>
+        <th colspan="5">Robot Information</th>
+    </tr>
+
+    <tr>
+        <th>Team (TLA)</th>
+        {% for i in range(4) %}
+            <td>
+                {% if match['teams'][i] is not none %}
+                    {{ match['teams'][i] }}
+                    <input
+                        type="hidden"
+                        name="tla_{{ i }}"
+                        value="{{ match['teams'][i] }}"
+                    />
+                {% else %}
+                    <em>Corner Empty</em>
+                {% endif %}
+            </td>
+        {% endfor %}
+    </tr>
+
+    <tr>
+        <th>Did the robot exit its corner?</th>
+        {% for i in range(4) %}
+            <td>
+                {% if match['teams'][i] is not none %}
+                    <input
+                        type="checkbox"
+                        name="robot_moved_{{ i }}"
+                        value="on"
+                        {{ 'checked' if request.form.get('robot_moved_{}'.format(i), False) else '' }}
+                    />
+                {% endif %}
+            </td>
+        {% endfor %}
+    </tr>
+
+    <tr>
+        <th>Was the robot disqualified?</th>
+        {% for i in range(4) %}
+            <td>
+                {% if match['teams'][i] is not none %}
+                    <input
+                        type="checkbox"
+                        name="disqualified_{{ i }}"
+                        value="on"
+                        {{ 'checked' if request.form.get('disqualified_{}'.format(i), False) else '' }} />
+                {% endif %}
+            </td>
+        {% endfor %}
+    </tr>
+
+    <tr>
+        <th>Was the robot present in this match?</th>
+        {% for i in range(4) %}
+            <td>
+                {% if match['teams'][i] is not none %}
+                    <input
+                        type="checkbox"
+                        name="present_{{ i }}"
+                        value="on"
+                        {{ 'checked' if request.form.get('present_{}'.format(i), False) else '' }}
+                    />
+                {% endif %}
+            </td>
+        {% endfor %}
+    </tr>
+
+    <tr>
+        <th>Number of upright tokens in the arena?</th>
+        {% for i in range(4) %}
+            <td>
+                {% if match['teams'][i] is not none %}
+                    <input
+                        type="number"
+                        name="upright_tokens_{{ i }}"
+                        value="{{ request.form.get('upright_tokens_{}'.format(i), 0) }}"
+                        required min="0"
+                        max="100"
+                    />
+                {% endif %}
+            </td>
+        {% endfor %}
+    </tr>
+
+    <tr>
+        <th colspan="5">How many tokens does the team have in each zone?</th>
+    </tr>
+
+    {% for j in range(4) %}
+        <tr>
+            <th>Zone {{ j }}</th>
+            {% for i in range(4) %}
+                <td>
+                    {% if match['teams'][i] is not none %}
+                        <input
+                            type="number"
+                            name="zone_tokens_{{ j }}_{{ i }}"
+                            value="{{ request.form.get('zone_tokens_{}_{}'.format(j, i), 0) }}"
+                        />
+                    {% endif %}
+                </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+
+    <tr>
+        <th colspan="5">Which slot does the team have tokens at the bottom of?</th>
+    </tr>
+
+    {% for j in range(8) %}
+        <tr>
+            <th>Slot {{ j }}</th>
+            {% for i in range(4) %}
+                <td>
+                    {% if match['teams'][i] is not none %}
+                        <input
+                            type="radio"
+                            name="slot_bottoms_{{ j }}"
+                            value="{{ i }}"
+                            {{ 'checked' if request.form.get('slot_bottoms_{}'.format(j), -1) == i else '' }}
+                        />
+                    {% endif %}
+                </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+
+<br />
+{% endblock %}
