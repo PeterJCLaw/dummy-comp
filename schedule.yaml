@@ -79,7 +79,7 @@ static_knockout:
       # match number within the round
       0:
         arena: A
-        display_name: "Qualifier 1"
+        display_name: Qualifier 1
         start_time: 2018-04-15 15:30:00+01:00
         # S<num> means seed number
         teams:
@@ -89,7 +89,7 @@ static_knockout:
         - S10
       1:
         arena: A
-        display_name: "Qualifier 2"
+        display_name: Qualifier 2
         start_time: 2018-04-15 15:35:00+01:00
         teams:
         - S4
