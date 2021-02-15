@@ -46,6 +46,8 @@ delays:
 # period. When `max_end_time` is optionally provided it is used to allow for
 # overruns within a given period due to delays. Matches which do not fit even
 # within such overruns are pushed to the start of the next period.
+#
+# See also https://srcomp.readthedocs.io/en/latest/schedule.html.
 match_periods:
   league:
 
