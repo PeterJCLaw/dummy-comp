@@ -25,9 +25,27 @@ staging:
   signal_teams: 240
 # Timezone in which the competition runs
 timezone: Europe/London
+# List of delays which have happened during the event.
+# Each delay is specified as a number of seconds at a given real time. It is
+# supported (even common) for a delay to happen "while" a previous delay is
+# still in effect, in which case the delays are applied sequentially.
+# You probably don't want to be adding delays manually. Instead you're encoraged
+# to install the SRComp CLI and use its `add-delay` or `delay` commands.
+# https://srcomp-cli.readthedocs.io/en/latest/commands/add-delay.html
 delays:
 - delay: 15
   time: 2018-04-14 13:15:00+01:00
+# Periods of time during which matches occur continuously.
+# Each period is expressed in terms of the times at which a match slot can
+# *begin*. This has the somewhat counter-intuitive result that a match slot can
+# begin exactly at the `end_time` (or `max_end_time`) and the match contained
+# within that slot could thus start *after* the apparent end time.
+#
+# For a given period `end_time` is used to determine the nominal point at which
+# matches should finish and thus which matches are eligible to occur during the
+# period. When `max_end_time` is optionally provided it is used to allow for
+# overruns within a given period due to delays. Matches which do not fit even
+# within such overruns are pushed to the start of the next period.
 match_periods:
   league:
 
