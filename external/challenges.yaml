@@ -1,0 +1,6 @@
+scores:
+  - team: BAY
+    league_points: 12
+  - team: BDF
+    game_points: 3
+    league_points: 60
