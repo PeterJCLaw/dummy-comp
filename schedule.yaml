@@ -96,6 +96,9 @@ knockout:
     # The arena to put them in
     arenas:
     - A
+  brackets:
+    - name: default
+      display_name: Knockouts
 static_knockout:
   rounds:
     # round number
