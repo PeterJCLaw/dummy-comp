@@ -101,6 +101,7 @@ knockout:
       display_name: Knockouts
     - name: other-bracket
       display_name: More Knockouts
+  static: true
 static_knockout:
   rounds:
     # round number
