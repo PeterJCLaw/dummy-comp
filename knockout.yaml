@@ -1,0 +1,51 @@
+structured_knockout:
+  rounds:
+    # round number
+    0:
+      display_name: Heats
+      matches:
+        # match number within the round
+        0:
+          arena: A
+          display_name: Qualifier 1
+          teams:
+          - seed: 3
+          - seed: 5
+          - seed: 8
+          - seed: 10
+        1:
+          arena: A
+          display_name: Qualifier 2
+          teams:
+          - seed: 4
+          - seed: 6
+          - seed: 7
+          - seed: 9
+    1:
+      matches:
+        0:
+          arena: A
+          teams:
+          # Reference a seeded team directly. Seeds are 1-indexed.
+          - seed: 2
+          # Reference the outcome from a previous knockout match. Positions are 0-indexed.
+          - {round: 0, match: 0, position: 0}
+          - {round: 0, match: 0, position: 2}
+          - {round: 0, match: 1, position: 1}
+        1:
+          arena: A
+          teams:
+          - seed: 1
+          - {round: 0, match: 0, position: 1}
+          - {round: 0, match: 1, position: 0}
+          - {round: 0, match: 1, position: 2}
+    2:
+      display_name: Finals
+      matches:
+        0:
+          arena: A
+          teams:
+          - {round: 1, match: 0, position: 0}
+          - {round: 1, match: 0, position: 1}
+          - {round: 1, match: 1, position: 0}
+          - {round: 1, match: 1, position: 1}
